@@ -1,6 +1,6 @@
 # projet-1
 
-git clone "le_projet" 
+git clone https://github.com/Projet-collectif/projet-1.git 
 
 composer install
 
