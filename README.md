@@ -1,6 +1,6 @@
 # projet-1
 
-git clone "le_porjet" 
+git clone "le_projet" 
 
 composer install
 
