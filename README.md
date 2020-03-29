@@ -19,3 +19,9 @@ Base de données:
  lancement du projet:
  
  php bin/console server:run
+ 
+ et pour finir :)
+ 
+ faire une branch pour votre dévelopement 
+ 
+ git checkout -B ma_branche
