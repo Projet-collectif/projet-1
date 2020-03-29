@@ -22,6 +22,6 @@ Base de données:
  
  et pour finir :)
  
- faire une branch pour votre dévelopement 
+ faire une branch pour votre développement 
  
  git checkout -B ma_branche
