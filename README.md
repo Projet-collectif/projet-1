@@ -15,3 +15,6 @@ Base de données:
   - db_user = login de votre phpmyadmin
   - db_password = mot de passe 
   - db_name = nom de base de données
+  
+ lancement du projet:
+ php bin/console server:run
