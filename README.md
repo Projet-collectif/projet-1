@@ -1,6 +1,7 @@
 # projet-1
 
-git clone ....
+git clone "le_porjet" 
+
 composer install
 
 Base de données:
