@@ -94,8 +94,6 @@ class SecurityController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
-        dump($this->_params->get('app_env')); 
-
         $user = new User();
         $form = $this->createForm(UserRegisterType::class, $user);
         $form->handleRequest($request);
