@@ -35,27 +35,27 @@ class CompteRegisterType extends AbstractType
                         'placeholder' => 'EX-NOM'
                     ],
                     'required' => true,
-                    'help' => '',
+                    'help' => 'HELP-REGISTER-NOM',
                     'help_html' => true,
                     'constraints' => [
                         new NotBlank(
                             [
-                                'message' => 'ASSET-NOT-BLANK-NAME',
+                                'message' => 'ASSET-NOT-BLANK-NOM',
                             ]
                         ), 
                         new Length(
                             [
                                 'min' => 3,
-                                'minMessage' => 'ASSETS-MIN-MESSAGE-NAME',
+                                'minMessage' => 'ASSETS-MIN-MESSAGE-NOM',
                                 'max' => 30, 
-                                'maxMessage' => 'ASSETS-MAX-MESSAGE-NAME',
+                                'maxMessage' => 'ASSETS-MAX-MESSAGE-NOM',
                             ]
                         ),
                         new Regex(
                             [
                                 'pattern' => '/^[a-zA-Z0-9-]+$/',
                                 'match'   => true,
-                                'message' => 'CONTRAINTS-REGEX-NAME'
+                                'message' => 'CONTRAINTS-REGEX-NOM'
                             ]
                         ),       
                     ],
@@ -92,7 +92,7 @@ class CompteRegisterType extends AbstractType
                             [
                                 'pattern' => '/^[a-zA-Z0-9-]+$/',
                                 'match'   => true,
-                                'message' => 'CONTRAINTS-REGEX-NAME'
+                                'message' => 'CONTRAINTS-REGEX-PRENOM'
                             ]
                         ),       
                     ],
@@ -160,7 +160,7 @@ class CompteRegisterType extends AbstractType
             )
             ->add(
                 'website', TextType::class, [
-                    'label' => 'WEBSITE',
+                    'label' => 'YOUR-WEBSITE',
                     'label_attr' => [
                         'class' => '',
                     ],
@@ -175,7 +175,7 @@ class CompteRegisterType extends AbstractType
             )
             ->add(
                 'avatar', TextType::class, [
-                    'label' => 'AVATAR',
+                    'label' => 'YOUR-AVATAR',
                     'label_attr' => [
                         'class' => '',
                     ],
