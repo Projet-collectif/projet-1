@@ -109,7 +109,7 @@
         "version": "2.2.3"
     },
     "php": {
-        "version": "7.4"
+        "version": "7.3"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -500,6 +500,9 @@
     },
     "symfony/yaml": {
         "version": "v4.3.11"
+    },
+    "twbs/bootstrap": {
+        "version": "v4.4.1"
     },
     "twig/twig": {
         "version": "v2.12.5"
