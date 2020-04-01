@@ -4,6 +4,16 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    locale: 'fr'
+    #app_locales: fr(francais)|en(anglais)|de(allemagne)|es(espagne)|cs|nl|ru(russie)|pt(portugal)|uk|ro|pt_BR|pl|it(italie)|ja|id|ca|sl|hr|zh_CN|bg(bulgarie)|tr
+    app_locales: fr|en|de|es|ru|it|pt|bg
+    app_env: '%env(resolve:APP_ENV)%'
+    sitename: 'projet-1'
+    app_root: '%kernel.project_dir%'
+    extensionsPhotos: ['png', 'jpg', 'jpeg']
+    mimeTypePhotos: ['image/png', 'image/jpeg', 'image/pjpeg']
+    extensionsVideos: ['avi', 'mpeg', 'mp4', 'quicktime']
+    mimeTypeVideos: ['video/x-msvideo', 'video/mpeg', 'video/mp4', 'video/quicktime']
 
 services:
     # default configuration for services in *this* file
