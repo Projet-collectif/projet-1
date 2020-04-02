@@ -124,8 +124,6 @@ class SecurityController extends AbstractController
 
             // Table Compte
             $user->getCompte()->setDepartement('');
-            $user->getCompte()->setCodepostal('');
-            $user->getCompte()->setVille('');
             $user->getCompte()->setLat('');
             $user->getCompte()->setLng('');
             $user->getCompte()->setDateRegister($dateNow);

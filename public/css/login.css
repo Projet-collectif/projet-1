@@ -1,9 +1,72 @@
-/* body{
-    background-color: black;
-} */
-.form-login{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 380px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+
+body{
+
+    overflow: hidden;
+    height: 900px;
+    font-family: 'Montserrat', sans-serif;
+
 }
+
+.row{
+    /* background-image: url(../images/work.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* position: absolute;
+    top:150px;
+    left: 0;
+    right: 0; */
+    height: 900px;
+    align-items: center;
+}
+
+.container-image {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+}
+
+.container-form-log{
+    /* align-items: center;
+    justify-content: center; */
+    background-color: #fff;
+    box-shadow: rgba(77, 74, 74, 0.637) 0 0 20px;
+    border-radius: 20px;
+
+    width: 40%;
+    height: 580px;
+    margin: auto;
+
+}
+
+
+form{
+    padding: 50px;
+    width: 100%;
+}
+form img{
+    display: flex;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+}
+form h1{
+    font-weight: bolder!important;
+    text-align: center;
+    font-size: 2.5rem;
+}
+label{margin:0;}
+label i{
+    color: grey;
+}
+
+
+nav a{
+    color: white !important;
+}
+
+.link-new-account a {font-size: .9em;}
+
