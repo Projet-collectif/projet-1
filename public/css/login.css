@@ -2,23 +2,12 @@
 
 
 body{
-
-    overflow: hidden;
-    height: 900px;
+ 
     font-family: 'Montserrat', sans-serif;
-
 }
-
-.row{
-    /* background-image: url(../images/work.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* position: absolute;
-    top:150px;
-    left: 0;
-    right: 0; */
-    height: 900px;
+body .container .row{
+    position: relative;
+    top: 140px;
     align-items: center;
 }
 
@@ -43,7 +32,10 @@ body{
 }
 
 
+
 form{
+    display: block;
+    border: solid black 1px;
     padding: 50px;
     width: 100%;
 }
@@ -64,9 +56,34 @@ label i{
 }
 
 
-nav a{
-    color: white !important;
-}
-
 .link-new-account a {font-size: .9em;}
 
+.title_entreprise{
+    text-align: center;
+    position:relative;
+    top: -50px;
+}
+
+.slogan_entreprise{
+    padding: 10px;
+    position: relative;
+    bottom: 50px;
+    text-align: center;
+}
+
+/* Media query pour mobile */
+@media (max-width: 755px) {
+    .container_entreprise{
+        display: none;
+    }
+    form{
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 755px) and (max-width: 1000px) {
+
+    form{
+        margin-bottom: 20px;
+    }
+}
