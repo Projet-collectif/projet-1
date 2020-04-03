@@ -6,7 +6,19 @@
 {% block body %}
 <div class="container"> 
   <div class="row">
-    <div class="offset-md-3 col-12 col-md-6">
+    <div class="container_entreprise col-lg-7 col-12 col-sm-12">
+      <h1 class="title_entreprise">The global world</h1>
+      <p class="slogan_entreprise">
+        <span class="d-block">Développer est notre passion et notre métier.</span>
+        <span class="d-block">Profitez de notre expertise professionnelle pour vos projets.</span>
+      </p>
+
+        <div class="img-container d-flex">
+          <img class="d-block" src="{{ asset('images/login/login_form.png') }}" alt="">
+
+      </div>
+    </div>
+    <div class=" col-12 col-sm-12 col-lg-5">
         <form method="post">
           {% if error %}
               <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -17,7 +29,7 @@
                   Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
               </div>
           {% endif %}
-          <img src="{{ asset('images/logo.png')}}" alt="logo_team">
+          <img src="{{ asset('images/login/logo.png')}}" alt="logo_team">
           <h1 class="mb-3 font-weight-normal">Se connecter</h1>
           <label for="inputEmail"><i class="far fa-envelope"></i> Email</label>
           <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
@@ -36,13 +48,9 @@
             <button class="btn btn-xs btn-info d-flex m-auto" type="submit">
               Se connecter
           </button>
-
         </form>
+
     </div>
   </div>
 </div>
-
-</div>
-
-
 {% endblock %}
