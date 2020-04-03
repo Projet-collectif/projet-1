@@ -12,13 +12,13 @@ REGISTER-ACCOUNT: 'Compte'
 NOM: 'Nom'
 EX-NOM: 'Dupont'
 HELP-REGISTER-NOM: ''
-ASSET-NOT-BLANK-NOM: 'Le champ ne peu être vide'
+ASSET-NOT-BLANK-NOM: 'Le champ ne peut être vide'
 ASSETS-MIN-MESSAGE-NOM: 'Ce champ nom dois comporter minimum 3 caractères'
 ASSETS-MAX-MESSAGE-NOM: 'Ce champ nom dois comporter maximum 30 caractères'
 CONTRAINTS-REGEX-NOM: 'Ce champ contient des erreurs'
 PRENOM: 'Prénom'
 EX-PRENOM: 'Jean-michel'
-ASSET-NOT-BLANK-PRENOM: 'Le champ ne peu être vide'
+ASSET-NOT-BLANK-PRENOM: 'Le champ ne peut être vide'
 ASSETS-MIN-MESSAGE-PRENOM: 'Ce champ prénom dois comporter minimum 3 caractères'
 ASSETS-MAX-MESSAGE-PRENOM: 'Ce champ prénom dois comporter maximum 30 caractères'
 CONTRAINTS-REGEX-PRENOM: 'Ce champ contient des erreurs'
@@ -29,7 +29,7 @@ VILLE: 'Ville'
 PSEUDO: 'Pseudo'
 EX-PSEUDO: ''
 HELP-REGISTER-PSEUDO: ''
-ASSET-NOT-BLANK-PSEUDO: 'Le champ ne peu être vide'
+ASSET-NOT-BLANK-PSEUDO: 'Le champ ne peut être vide'
 ASSETS-MIN-MESSAGE-PSEUDO: 'Ce champ pseudo dois comporter minimum 3 caractères'
 ASSETS-MAX-MESSAGE-PSEUDO: 'Ce champ pseudo dois comporter maximum 30 caractères'
 CONTRAINTS-REGEX-PSEUDO: 'Ce champ contient des erreurs'
@@ -37,3 +37,10 @@ YOUR-WEBSITE: 'Votre site web'
 EX-WEBSITE: 'www.original-codeur.fr'
 YOUR-AVATAR: 'Votre avatar'
 SAVE: 'Enregistrer'
+
+form:
+  signin: Connectez-vous
+  signinBtn: Connexion
+
+user:
+  loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a>
