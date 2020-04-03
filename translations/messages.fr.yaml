@@ -37,3 +37,10 @@ YOUR-WEBSITE: 'Votre site web'
 EX-WEBSITE: 'www.original-codeur.fr'
 YOUR-AVATAR: 'Votre avatar'
 SAVE: 'Enregistrer'
+
+form:
+  signin: Connectez-vous
+  signinBtn: Connexion
+
+user:
+  loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a> 
