@@ -7,15 +7,7 @@ body{
 }
 
 .row{
-    /* background-image: url(../images/work.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* position: absolute;
-    top:150px;
-    left: 0;
-    right: 0; */
-    height: 900px;
+    height: 800px;
     align-items: center;
 }
 
@@ -40,6 +32,7 @@ body{
 }
 
 
+
 form{
     padding: 50px;
     width: 100%;
@@ -60,10 +53,6 @@ label i{
     color: grey;
 }
 
-
-nav a{
-    color: white !important;
-}
 
 .link-new-account a {font-size: .9em;}
 
