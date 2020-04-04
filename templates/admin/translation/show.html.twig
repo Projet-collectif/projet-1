@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Translation &mdash;
+	{{ locale.name }}
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.css"/>
+{% endblock %}
+
+{% block body %}
+	<div class="container mb-5 pb-5">
+        <h1 class="mb-5 mt-3 pb-2 border-bottom"><a href="{{ path('admin_translation') }}"><i class="fa fa-arrow-left"></i></a> Translation &mdash; {{ locale.name }}</h1>
+
+        <form method="POST" action="{{ path('admin_translation_edit') }}">
+            <button type="button" id="addRow" class="btn btn-primary mb-3 px-3"><i class="fa fa-plus-circle"></i> Ajouter</button>
+            <button type="submit" class="btn btn-success mb-3 px-3"><i class="fa fa-save"></i> Enregistrer</button>
+            <table id="dataTable" class="table table-condensed table-responsive w-100 border-bottom">
+                <thead>
+                    <tr>
+                        <th class="w-25">Clé</th>
+                        <th class="w-75">Valeure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, value in data %}
+                        <tr>
+                            <td class="w-25">
+                                <input type="text" class="form-control border-0 shadow-none" name="translation[key][{{ loop.index }}]" value="{{ key }}">
+                            </td>
+                            <td class="w-75">
+                                <input type="text" class="form-control border-0 shadow-none" name="translation[value][{{ loop.index }}]" value="{{ value }}">
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <input type="hidden" name="translation[locale]" value="{{ locale.code }}">
+        </form>
+	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.js"></script>
+{% endblock %}

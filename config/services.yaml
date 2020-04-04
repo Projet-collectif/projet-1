@@ -16,8 +16,6 @@ parameters:
     extensionsVideos: ['avi', 'mpeg', 'mp4', 'quicktime']
     mimeTypeVideos: ['video/x-msvideo', 'video/mpeg', 'video/mp4', 'video/quicktime']
 
-    projectDir: '%kernel.project_dir%'
-
 services:
     # default configuration for services in *this* file
     _defaults:

@@ -29,15 +29,45 @@ class AdminTranslationController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $locale = $request->query->get('locale');
+        $localeCode = $request->query->get('locale');
         $locales = $this->service->getDefinedTranslations();
 
-        if(in_array($locale, array_keys($locales))) {
-            dd($locale);
+        if(in_array($localeCode, array_keys($locales))) {
+            $data = $this->service->getTranslation($localeCode);
+            $locale = [
+                'code' => $localeCode,
+                'name' => $this->service->getLocaleName($localeCode)
+            ];
+
+            return $this->render('admin/translation/show.html.twig', [
+                'data'      => $data,
+                'locale'    => $locale
+            ]);
         } else {
             return $this->render('admin/translation/index.html.twig', [
                 'locales' => $locales
             ]);
         }
+    }
+
+    /**
+     * @Route("/edit", name="admin_translation_edit", methods={"POST"})
+     */
+    public function editTranslation(Request $request)
+    {
+        $query = $request->request->get('translation');
+
+        $locale = $query['locale'];
+        $data = array_combine($query['key'], $query['value']);
+        
+        if($this->service->updateTranslation($locale, $data)) {
+            $this->addFlash('success', 'Le fichier a été mis à jour.');
+        } else {
+            $this->addFlash('danger', 'Erreur // TODO.');
+        }
+        
+        return $this->redirectToRoute('admin_translation', [
+            'locale' => $query['locale']
+        ]);
     }
 }

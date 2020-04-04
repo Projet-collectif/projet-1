@@ -1,0 +1,4 @@
+
+#dataTable input:focus {
+    box-shadow: 0 0 0 0.115rem rgba(0, 123, 255, 0.25)!important;
+}

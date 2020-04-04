@@ -1,1 +1,21 @@
-{% extends "base.html.twig" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('css/boostrap4-4-1.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+
+       <script src="{{ asset('js/jquery-3-4-1.js') }}"></script>
+       <script src="{{ asset('js/popper.js') }}"></script>
+       <script src="{{ asset('js/js-boostrap4-4-1.js') }}"></script>
+       <script src="{{ asset('js/admin.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
