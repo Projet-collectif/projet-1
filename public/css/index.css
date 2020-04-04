@@ -1,20 +1,40 @@
-.section-title{
-    display:flex;
-    margin-top: 1em;
-
+.carousel{
+    height: auto;
+    margin: 50px 25px 0;
+    justify-content: center;
 }
-.section-title h1{
-    box-shadow: rgba(56, 55, 55, 0.836) 0px 0px 15px;
-    font-size: 2rem;
-    text-align: center;
-    margin: auto;
-    padding: .8rem 1rem;
-    background: #b92b27;  /* fallback for old browsers */
+.carousel img{
+    margin-bottom: 50px;
+    height: 250px;
+}
+.carousel li {
+    background-color: rgb(0, 0, 0);
+}
+
+
+/* .carousel h1 {
+    margin-top: 50px;
+    padding: 25px;
+    color: rgba(255, 255, 255, 1);
+}
+*/
+
+.carousel .btn{
     background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border-radius: 20px;
-    color: #fff;
+    border: none !important;
+    transition: all .2s ease-in-out;
+} 
 
+.carousel .btn:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) -10px 10px 10px;
 
-    width: max-content;
+}
+
+.carousel button {
+    display: flex;
+    margin: 20px auto  20px ;
+}
+.carousel a{
+    color: white;
 }

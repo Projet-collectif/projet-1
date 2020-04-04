@@ -2,27 +2,46 @@
 
 
 body{
- 
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
 }
-body .container .row{
-    position: relative;
-    top: 140px;
-    align-items: center;
+.container{
+    width: 100%;
 }
 
-.container-image {
-    display: flex;
-    align-items:center;
-    justify-content: center;
+.container-entreprise{
     position: relative;
+
 }
+.title_entreprise{
+    font-size: 60px;
+    text-align: center;
+    position: absolute;
+    top: -150px;
+    left: 80px;
+
+}
+
+.slogan_entreprise{
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.container_entreprise{
+    display: absolute;
+    bottom:-50px;
+}
+.container_entreprise img{
+    width: 100%;
+    position: absolute;
+    bottom: -200px;
+}
+
+
 
 .container-form-log{
-    /* align-items: center;
-    justify-content: center; */
     background-color: #fff;
-    box-shadow: rgba(77, 74, 74, 0.637) 0 0 20px;
     border-radius: 20px;
 
     width: 40%;
@@ -31,45 +50,45 @@ body .container .row{
 
 }
 
-
-
 form{
-    display: block;
-    border: solid black 1px;
-    padding: 50px;
-    width: 100%;
+    border: solid rgba(0, 0, 0, 0.4) 1px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 45px;
+
 }
 form img{
     display: flex;
     margin: auto;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
 }
 form h1{
     font-weight: bolder!important;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2em;
 }
-label{margin:0;}
+
+
+label{
+    margin-top:10px;
+    font-size: 1em;
+}
 label i{
     color: grey;
 }
 
+button{
+    font-size: 1em !important;
+}
+.container .row{
+    position: relative;
+    top: 140px;
+    align-items: center;
+}
 
 .link-new-account a {font-size: .9em;}
 
-.title_entreprise{
-    text-align: center;
-    position:relative;
-    top: -50px;
-}
-
-.slogan_entreprise{
-    padding: 10px;
-    position: relative;
-    bottom: 50px;
-    text-align: center;
-}
 
 /* Media query pour mobile */
 @media (max-width: 755px) {
@@ -86,4 +105,18 @@ label i{
     form{
         margin-bottom: 20px;
     }
+    body .container .row{
+        position: relative;
+        top: 0;
+        align-items: center;
+    }
+    .title_entreprise{
+        font-size: 60px;
+        text-align: center;
+        position: relative;
+        top: 0;
+        left: 0;
+    
+    }
+
 }
