@@ -5,14 +5,44 @@
 {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/index.css')}}">{% endblock %}
 
 {% block body %}
-<section class="hero">
-    <div class="content">
-      <h2>INFORMATION A NE PAS MANQUER ! </h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum libero dignissimos eaque nemo voluptatibus? Aut ea exercitationem aliquid labore, necessitatibus illo, alias quaerat vitae earum ad distinctio voluptatem quas quasi.</p>
+
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators ">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <h1 class="title_carousel-first text-center">Projet en cours 1</h1>
+              <button class="btn btn-info btn-lg "><a href="#">En savoir plus</a></button>
+              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
+              <div class="overlay"></div>
+
+            </div>
+            <div class="carousel-item">
+              <h1 class="title_carousel title-proj2 text-center">Projet en cours 2</h1>
+              <button class="btn btn-lg btn-primary"><a href="#">En savoir plus</a></button>
+              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
+              <div class="overlay"></div>
+
+            </div>
+            <div class="carousel-item">
+              <h1 class="title_carousel title-proj3 text-center">Projet en cours 3</h1>
+              <button class=" btn btn-lg btn-primary"><a href="#">En savoir plus</a></button>
+              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
+              <div class="overlay"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    <div class="waves2"></div>
-  </section>
-{# <main>
-    
-</main> #}
+    </div>
+  </div>
+</main>
+
 {% endblock %}
