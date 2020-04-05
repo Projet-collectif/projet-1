@@ -28,10 +28,10 @@ body{
     text-align: center;
 }
 
-.container_entreprise{
-    display: absolute;
-    bottom:-50px;
-}
+/* .container_entreprise{
+    position: absolute;
+    top:-50px;
+} */
 .container_entreprise img{
     width: 100%;
     position: absolute;
@@ -90,6 +90,8 @@ button{
 .link-new-account a {font-size: .9em;}
 
 
+
+
 /* Media query pour mobile */
 @media (max-width: 755px) {
     .container_entreprise{
@@ -105,11 +107,11 @@ button{
     form{
         margin-bottom: 20px;
     }
-    body .container .row{
+    /* body .container .row{
         position: relative;
         top: 0;
         align-items: center;
-    }
+    } */
     .title_entreprise{
         font-size: 60px;
         text-align: center;
@@ -120,3 +122,19 @@ button{
     }
 
 }
+/* .container_entreprise {
+position: relative;
+bottom: 0;
+}
+
+.title_entreprise{
+    font-size: 45px
+    font-weight: bolder;
+    position: static
+
+    .slogan_entreprise {
+    font-size: 20px;
+    margin: 20px;
+    text-align: center
+
+}*/
