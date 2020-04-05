@@ -2,21 +2,19 @@
 
 namespace App\Controller\Admin;
 
-use App\Helper\TemplateBackTrait;
+use App\Service\ParamsService;
 use App\Service\TranslationService;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 /**
  * @Route("/admin/translation")
  */
 class AdminTranslationController extends AbstractController
 {
-    use TemplateBackTrait;
-
     /**
      * @var TranslationService
      */
@@ -30,7 +28,7 @@ class AdminTranslationController extends AbstractController
     /**
      * @Route("/", name="admin_translation")
      */
-    public function index(Request $request): Response
+    public function index(Request $request, ParamsService $params): Response
     {
         $localeCode = $request->query->get('locale');
         $locales = $this->service->getDefinedTranslations();
@@ -43,14 +41,14 @@ class AdminTranslationController extends AbstractController
             ];
 
             return $this->render(
-                'admin/'.$this->templateBack.'/translation/show.html.twig', [
+                'admin/'.$params->getTemplateBack().'/translation/show.html.twig', [
                     'data'      => $data,
                     'locale'    => $locale
                 ]
             );
         } else {
             return $this->render(
-                'admin/'.$this->templateBack.'/translation/index.html.twig', [
+                'admin/'.$params->getTemplateBack().'/translation/index.html.twig', [
                     'locales' => $locales
                 ]
             );
