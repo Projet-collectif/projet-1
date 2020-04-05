@@ -4,22 +4,18 @@ namespace App\Helper;
 
 use App\Service\ParamsService;
 
-/**
- * Undocumented trait
- */
 trait TemplateBackTrait
 {
     protected $templateBack;
 
     /**
-     * Undocumented function
+     * Void __construct()
      *
      * @param ParamsService $params comment
-     * 
-     * @return void
      */
-    public function setTemplateBack(ParamsService $params): void 
+    public function __construct(ParamsService $params)
     {
         $this->templateBack = $params->getTemplateBack();
     }
+
 }
