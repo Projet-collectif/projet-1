@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="{% block meta_description %}{% endblock %}">
+        <meta name="author" content="{{ sitename }}">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/matrix/assets/images/favicon.png') }}">
+        <link href="{{ asset('admin/matrix/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/matrix/dist/css/style.min.css') }}" rel="stylesheet">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+
+        {% include 'alert.html.twig' %}
+        
+        <div id="main-wrapper">
+            <header class="topbar" data-navbarbg="skin5">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <div class="navbar-header" data-logobg="skin5">
+                        <!-- This is for the sidebar toggle which is visible on mobile only -->
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="{{ path('admin') }}"><span class="ti-menu ti-close"></span></a>
+                        <!-- ============================================================== -->
+                        <!-- Logo -->
+                        <!-- ============================================================== -->
+                        <a class="navbar-brand" href="{{ path('admin') }}">
+                            <!-- Logo icon -->
+                            <b class="logo-icon p-l-10">
+                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                                <!-- Dark Logo icon -->
+                                <img src="{{ asset('admin/matrix/assets/images/logo.png') }}" alt="homepage" style="width:32px;" class="light-logo" />
+                                
+                            </b>
+                            <!--End Logo icon -->
+                                <!-- Logo text -->
+                            <span class="logo-text ml-2">
+                                    <!-- dark Logo text -->
+                                    {#<img src="assets/images/logo-text.png" alt="WORD DEV" class="light-logo" />#}
+                                    ADMIN DEV
+                                
+                            </span>
+                            <!-- Logo icon -->
+                            <!-- <b class="logo-icon"> -->
+                                <!--You can put here icon as well // <span class="wi wi-sunset"></span> //-->
+                                <!-- Dark Logo icon -->
+                                <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                                
+                            <!-- </b> -->
+                            <!--End Logo icon -->
+                        </a>
+                        <!-- ============================================================== -->
+                        <!-- End Logo -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Toggle which is visible on mobile only -->
+                        <!-- ============================================================== -->
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="ti-more"></span></a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                        <!-- ============================================================== -->
+                        <!-- toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav float-left mr-auto">
+                            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><span class="mdi mdi-menu font-24"></span></a></li>
+                            <!-- ============================================================== -->
+                            <!-- create new -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="d-none d-md-block">Create New <span class="fa fa-angle-down"></span></span>
+                                    <span class="d-block d-md-none"><span class="fa fa-plus"></span></span>   
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <!-- ============================================================== -->
+                            <!-- Search -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><span class="ti-search"></span></a>
+                                <form class="app-search position-absolute">
+                                    <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><span class="ti-close"></span></a>
+                                </form>
+                            </li>
+                        </ul>
+                        <!-- ============================================================== -->
+                        <!-- Right side toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav float-right">
+                            <!-- ============================================================== -->
+                            <!-- Comment -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="mdi mdi-bell font-24"></span>
+                                </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <!-- ============================================================== -->
+                            <!-- End Comment -->
+                            <!-- ============================================================== -->
+                            <!-- ============================================================== -->
+                            <!-- Messages -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="font-24 mdi mdi-comment-processing"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                                    <ul class="list-style-none">
+                                        <li>
+                                            <div class="">
+                                                    <!-- Message -->
+                                                <a href="javascript:void(0)" class="link border-top">
+                                                    <div class="d-flex no-block align-items-center p-10">
+                                                        <span class="btn btn-success btn-circle"><span class="ti-calendar"></span></span>
+                                                        <div class="m-l-10">
+                                                            <h5 class="m-b-0">Event today</h5> 
+                                                            <span class="mail-desc">Just a reminder that event</span> 
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <!-- Message -->
+                                                <a href="javascript:void(0)" class="link border-top">
+                                                    <div class="d-flex no-block align-items-center p-10">
+                                                        <span class="btn btn-info btn-circle"><span class="ti-settings"></span></span>
+                                                        <div class="m-l-10">
+                                                            <h5 class="m-b-0">Settings</h5> 
+                                                            <span class="mail-desc">You can customize this template</span> 
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <!-- Message -->
+                                                <a href="javascript:void(0)" class="link border-top">
+                                                    <div class="d-flex no-block align-items-center p-10">
+                                                        <span class="btn btn-primary btn-circle"><span class="ti-user"></span></span>
+                                                        <div class="m-l-10">
+                                                            <h5 class="m-b-0">Pavan kumar</h5> 
+                                                            <span class="mail-desc">Just see the my admin!</span> 
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <!-- Message -->
+                                                <a href="javascript:void(0)" class="link border-top">
+                                                    <div class="d-flex no-block align-items-center p-10">
+                                                        <span class="btn btn-danger btn-circle"><span class="fa fa-link"></span></span>
+                                                        <div class="m-l-10">
+                                                            <h5 class="m-b-0">Luanch Admin</h5> 
+                                                            <span class="mail-desc">Just see the my new admin!</span> 
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!-- ============================================================== -->
+                            <!-- End Messages -->
+                            <!-- ============================================================== -->
+
+                            <!-- ============================================================== -->
+                            <!-- User profile and search -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {% if app.user.compte.avatar != ''%}
+                                    {% set avatar = app.user.compte.avatar %}
+                                    {% else %}
+                                    {% set avatar = 'avatar_default.jpg' %}
+                                    {% endif %}
+                                    <img src="{{ asset('images/avatar') }}/{{ avatar }}" alt="{{ app.user.compte.pseudo }}" class="rounded-circle" width="31">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                    <a class="dropdown-item" href="javascript:void(0)"><span class="ti-user m-r-5 m-l-5"></span> My Profile</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><span class="ti-wallet m-r-5 m-l-5"></span> My Balance</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><span class="ti-email m-r-5 m-l-5"></span> Inbox</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="javascript:void(0)"><span class="ti-settings m-r-5 m-l-5"></span> Account Setting</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="{{ path('app_logout') }}">
+                                        <span class="fa fa-power-off m-r-5 m-l-5 mr-1"></span>{{ 'LOGOUT'|trans }}
+                                    </a>
+                                </div>
+                            </li>
+                            <!-- ============================================================== -->
+                            <!-- User profile and search -->
+                            <!-- ============================================================== -->
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <aside class="left-sidebar" data-sidebarbg="skin5">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav" class="p-t-30">
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('admin') }}" aria-expanded="false">
+                                    <span class="mdi mdi-view-dashboard mr-1"></span><span class="hide-menu">{{ 'DASHBOARD'|trans }}</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false">
+                                    <span class="mdi mdi-chart-bar mr-1"></span><span class="hide-menu">{{ 'TRANSLATIONS'|trans }}</span>
+                                </a>
+                            </li>
+                            {#}
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>
+                                    <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>
+                                    <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a></li>
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
+                                <ul aria-expanded="false" class="collapse  first-level">
+                                    <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2 </span></a></li>
+                                    <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery </span></a></li>
+                                    <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar </span></a></li>
+                                    <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice </span></a></li>
+                                    <li class="sidebar-item"><a href="pages-chat.html" class="sidebar-link"><i class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option </span></a></li>
+                                </ul>
+                            </li>
+                            {#}
+                        </ul>
+                    </nav>
+                    <!-- End Sidebar navigation -->
+                </div>
+                <!-- End Sidebar scroll-->
+            </aside>
+            {% block body %}{% endblock %}
+        </div>
+        <script src="{{ asset('admin/matrix/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+        <script src="{{ asset('admin/matrix/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('admin/matrix/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('admin/matrix/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+        <script src="{{ asset('admin/matrix/assets/extra-libs/sparkline/sparkline.js') }}"></script>
+        <script src="{{ asset('admin/matrix/dist/js/waves.js') }}"></script>
+        <script src="{{ asset('admin/matrix/dist/js/sidebarmenu.js') }}"></script>
+        <script src="{{ asset('admin/matrix/dist/js/custom.js') }}"></script>
+        <script src="{{ asset('admin/matrix/dist/js/admin-custom.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
