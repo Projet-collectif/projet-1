@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Helper\TemplateBackTrait;
 use App\Service\TranslationService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -14,6 +15,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminTranslationController extends AbstractController
 {
+    use TemplateBackTrait;
+
     /**
      * @var TranslationService
      */
@@ -40,14 +43,14 @@ class AdminTranslationController extends AbstractController
             ];
 
             return $this->render(
-                'admin/matrix/translation/show.html.twig', [
+                'admin/'.$this->templateBack.'/translation/show.html.twig', [
                     'data'      => $data,
                     'locale'    => $locale
                 ]
             );
         } else {
             return $this->render(
-                'admin/matrix/translation/index.html.twig', [
+                'admin/'.$this->templateBack.'/translation/index.html.twig', [
                     'locales' => $locales
                 ]
             );

@@ -4,7 +4,7 @@
  * PHP version 7
  *
  * @category App\Helper
- * @package  TemplateBackTrait.php
+ * @package  TemplateFrontTrait.php
  * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
  * @license  http://opensource.org/licenses/gpl-license.php MIT License
  * @link     https://github.com/Projet-collectif/projet-1
@@ -16,7 +16,7 @@ namespace App\Helper;
  * PHP version 7
  *
  * @category App\Helper
- * @package  TemplateBackTrait.php
+ * @package  TemplateFrontTrait.php
  * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
  * @license  http://opensource.org/licenses/gpl-license.php MIT License
  * @link     https://github.com/Projet-collectif/projet-1
@@ -28,19 +28,19 @@ use App\Service\ParamsService;
  * PHP version 7
  *
  * @category App\Helper
- * @package  TemplateBackTrait.php
+ * @package  TemplateFrontTrait.php
  * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
  * @license  http://opensource.org/licenses/gpl-license.php MIT License
  * @link     https://github.com/Projet-collectif/projet-1
  */
-trait TemplateBackTrait
+trait TemplateFrontTrait
 {
     /**
-     * Variable $this->templateBack
+     * Variable $this->templateFront
      *
      * @var string 
      */
-    protected $templateBack;
+    protected $templateFront;
 
     /**
      * Void __construct()
@@ -49,7 +49,7 @@ trait TemplateBackTrait
      */
     public function __construct(ParamsService $params)
     {
-        $this->templateBack = $params->getTemplateBack();
+        $this->templateBack = $params->getTemplateFront();
     }
 
 }
