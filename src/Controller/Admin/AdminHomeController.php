@@ -22,7 +22,7 @@ namespace App\Controller\Admin;
  * @link     https://github.com/Projet-collectif/projet-1
  */
 
-use App\Helper\TemplateBackTrait;
+use App\Service\ParamsService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -42,8 +42,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class AdminHomeController extends AbstractController
 {
-    use TemplateBackTrait;
-
     /**
      * Function index
      * 
@@ -51,10 +49,10 @@ class AdminHomeController extends AbstractController
      * 
      * @return Response
      */
-    public function index(): Response
+    public function index(ParamsService $params): Response
     {
         return $this->render(
-            'admin/'.$this->templateBack.'/home/index.html.twig', [
+            'admin/'.$params->getTemplateBack().'/home/index.html.twig', [
                 'controller_name' => 'AdminHomeController',
             ]
         );
