@@ -1,0 +1,30 @@
+{% extends 'admin/matrix/base.html.twig' %}
+
+{% block title %}Translation{% endblock %}
+
+{% block body %}
+
+    <h1>Translation</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form action="{{ path('admin_translation') }}">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <select name="locale" class="custom-select">
+                                <option selected>Séléctionner une langue</option>
+                                {% for code, name in locales %}
+                                    <option value="{{ code }}">{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-auto">
+                          <button type="submit" class="btn btn-primary">Afficher</button>
+                        </div>
+                      </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
