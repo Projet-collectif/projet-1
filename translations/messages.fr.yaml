@@ -1,3 +1,4 @@
+HOME: 'Accueil'
 ERROR-UPLOAD: 'Une erreur est survenu lors de l''upload'
 ERROR-UPLOAD-FORMAT: 'Le format du fichier n''est pas bon'
 SMALL-AVATAR: 'La taille de votre avatar est trop petit'
@@ -37,6 +38,11 @@ YOUR-WEBSITE: 'Votre site web'
 EX-WEBSITE: 'www.original-codeur.fr'
 YOUR-AVATAR: 'Votre avatar'
 SAVE: 'Enregistrer'
+COPYRIGHT: 'Copyright &copy; %date% %sitename% | Tous droits réservés.'
+LOGIN: 'Connexion'
+LOGOUT: 'Déconnexion'
+ADMINISTRATION: 'Administration'
+REGISTER: 'Créer un compte'
 
 form:
   signin: Connectez-vous

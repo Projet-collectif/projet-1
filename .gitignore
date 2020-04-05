@@ -1,5 +1,7 @@
 
 ###> symfony/framework-bundle ###
+/src/Controller/TestController.php
+/templates/test/
 /.env.local
 /.env.local.php
 /.env.*.local
