@@ -45,6 +45,8 @@ class AdminHomeController extends AbstractController
     /**
      * Function index
      * 
+     * @param ParamsService $params comment
+     * 
      * @Route("/", name="admin")
      * 
      * @return Response
