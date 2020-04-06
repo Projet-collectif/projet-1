@@ -1,6 +1,26 @@
 <?php
 
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  UserRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
+
 namespace App\Form;
+
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  UserRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
 
 use App\Entity\User;
 use App\Form\CompteRegisterType;
@@ -11,6 +31,15 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  UserRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
 class UserRegisterType extends AbstractType
 {
     /**

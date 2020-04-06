@@ -1,0 +1,9 @@
+.display-none {
+    display:none;
+}
+#datatable .details, 
+#datatable .fa-trash-alt,
+#datatable .fa-check, 
+#datatable .fa-times {
+    cursor:pointer;
+}

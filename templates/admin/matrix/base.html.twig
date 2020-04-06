@@ -10,6 +10,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/matrix/assets/images/favicon.png') }}">
         <link href="{{ asset('admin/matrix/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
         <link href="{{ asset('admin/matrix/dist/css/style.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/matrix/dist/css/custom.css') }}" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -223,6 +224,11 @@
                                     <span class="mdi mdi-chart-bar mr-1"></span><span class="hide-menu">{{ 'TRANSLATIONS'|trans }}</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ path('admin_blog_index') }}" aria-expanded="false">
+                                    <span class="mdi mdi-chart-bar mr-1"></span><span class="hide-menu">{{ 'BLOG'|trans }}</span>
+                                </a>
+                            </li>
                             {#}
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
                             <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
@@ -258,7 +264,12 @@
                 </div>
                 <!-- End Sidebar scroll-->
             </aside>
-            {% block body %}{% endblock %}
+            <div class="page-wrapper">
+                {% block body %}{% endblock %}
+                <footer class="footer text-center">
+                    {{ 'COPYRIGHT'|trans({"%date%":"now"|date("Y"), "%sitename%":sitename})|raw }}
+                </footer>
+            </div>
         </div>
         <script src="{{ asset('admin/matrix/assets/libs/jquery/dist/jquery.min.js') }}"></script>
         <script src="{{ asset('admin/matrix/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>

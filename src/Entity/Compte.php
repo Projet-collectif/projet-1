@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CompteRepository")
@@ -12,7 +15,7 @@ class Compte
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"unsigned"=true})
      */
     private $id;
 
@@ -95,6 +98,19 @@ class Compte
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $avatar;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Blog", mappedBy="compte")
+     */
+    private $blogs;
+
+    /**
+     * Void __construct()
+     */
+    public function __construct()
+    {
+        $this->blogs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -292,4 +308,52 @@ class Compte
 
         return $this;
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return Collection|Blog[]
+     */
+    public function getBlogs(): Collection
+    {
+        return $this->blogs;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Blog $blog comment
+     * 
+     * @return self
+     */
+    public function addBlog(Blog $blog): self
+    {
+        if (!$this->blogs->contains($blog)) {
+            $this->blogs[] = $blog;
+            $blog->setCompte($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Blog $blog comment 
+     * 
+     * @return self
+     */
+    public function removeBlog(Blog $blog): self
+    {
+        if ($this->blogs->contains($blog)) {
+            $this->blogs->removeElement($blog);
+            // set the owning side to null (unless already changed)
+            if ($blog->getCompte() === $this) {
+                $blog->setCompte(null);
+            }
+        }
+
+        return $this;
+    }
+    
 }

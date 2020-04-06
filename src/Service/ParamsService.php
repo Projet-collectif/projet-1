@@ -137,6 +137,16 @@ class ParamsService
     }
 
     /**
+     * Retourne la langue du site actif
+     *
+     * @return string
+     */
+    public function locale(): string
+    {
+        return $this->getParams()->get('locale');
+    }
+
+    /**
      * Retourne un tableau des codes pays associés au nom du pays
      *
      * @return array

@@ -1,0 +1,13 @@
+{% extends 'admin/matrix/base.html.twig' %}
+
+{% block title %}Edit Blog{% endblock %}
+
+{% block body %}
+    <h1>Edit Blog</h1>
+
+    {{ include('admin/matrix/blog/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_blog_index') }}">back to list</a>
+
+    {{ include('admin/matrix/blog/_delete_form.html.twig') }}
+{% endblock %}
