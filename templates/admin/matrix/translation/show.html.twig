@@ -43,5 +43,24 @@
 {% endblock %}
 
 {% block javascripts %}
-	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.js"></script>
+    <script>
+        var table = $('#dataTable').DataTable({
+            "paging": false
+        });
+        var itemsCount = table.rows().count();
+
+
+        $("#addRow").on('click', function (e) {
+            itemsCount++;
+            table.row.add([
+                `<input type="text" class="form-control border-0 shadow-none" placeholder="Key" name="translation[key][${itemsCount}]" value="">`,
+                `<input type="text" class="form-control border-0 shadow-none" placeholder="Value" name="translation[value][${itemsCount}]" value="">`
+            ]).draw(false)
+        });
+
+        if (itemsCount == 0) {
+            $('#addRow').click();
+        }
+    </script>
 {% endblock %}

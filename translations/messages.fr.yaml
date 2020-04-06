@@ -28,7 +28,7 @@ EX-ADRESSE: '12 rue du lac'
 CODE-POSTAL: 'Code postal'
 VILLE: Ville
 PSEUDO: Pseudo
-EX-PSEUDO: ''
+EX-PSEUDO: dupon
 HELP-REGISTER-PSEUDO: ''
 ASSET-NOT-BLANK-PSEUDO: 'Le champ ne peu être vide'
 ASSETS-MIN-MESSAGE-PSEUDO: 'Ce champ pseudo dois comporter minimum 3 caractères'

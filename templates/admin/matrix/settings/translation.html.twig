@@ -1,40 +1,59 @@
 {% extends 'admin/matrix/base.html.twig' %}
 
+{% from "admin/matrix/layout/breadcrumbs.html.twig" import level1 as breadcrumb_level1 %}
+
 {% block title %}Paramètres de traduction{% endblock %}
 
 {% block body %}
 
-    <div class="container">
-        <h1>Paramètres de traduction</h1>
-    </div>
+	<div class="page-wrapper">
+        {{ breadcrumb_level1('Paramètres de traduction', 'Paramètres') }}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <form action="{{ path('admin_settings_translation') }}" method="POST">
-                    <div class="form-row align-items-center">
-                        <div class="col-auto">Langue de référence</div>
-                        <div class="col-auto">
-                            {% set displayRef = 'Langue par défaut' %}
-                            {% if refLocale != '%locale%' %}
-                                {% set displayRef = locales[refLocale] %}
-                            {% endif %}
-                            <select name="translation[ref_locale]" class="custom-select">
-                                <option value="{{ refLocale }}" selected>{{ displayRef }}</option>
-                                {% for code, name in locales %}
-                                    <option value="{{ code }}">{{ name }}</option>
-                                {% endfor %}
-                                {% if refLocale != '%%' %}
-                                    <option value="%locale%">Langue par défaut</option>
-                                {% endif %}
-                            </select>
-                        </div>
-                        <div class="col-auto">
-                          <button type="submit" class="btn btn-primary">Mettre à jour</button>
-                        </div>
-                      </div>
-                </form>
-            </div>
-        </div>
-    </div>
+		<div class="row bg-white">
+			<div class="col-md-7">
+				<form action="{{ path('admin_settings_translation') }}" method="POST">
+					<div class="card">
+						<div class="card-body">
+							<div class="form-group row">
+								<label class="col-md-3 m-t-15">Langue de référence</label>
+								<div class="col-md-9" data-select2-id="11">
+									<select name="translation[ref_locale]" class="select2 form-control custom-select select2-hidden-accessible">
+										{% set displayRef = 'Langue par défaut' %}
+										{% if refLocale != '%locale%' %}
+											{% set displayRef = locales[refLocale] %}
+										{% endif %}
+										<option value="{{ refLocale }}" selected>{{ displayRef }}</option>
+                                        {% for code, name in locales %}
+                                            {% if code != refLocale %}
+                                                <option value="{{ code }}">{{ name }}</option>
+                                            {% endif %}
+										{% endfor %}
+										{% if refLocale != '%locale%' %}
+											<optgroup>
+												<option value="%locale%">Langue par défaut</option>
+											</optgroup>
+										{% endif %}
+									</select>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3">Combiner les clés</label>
+								<div class="col-md-9">
+									<div class="custom-control custom-checkbox mr-sm-2">
+										<input name="translation[combine_keys]" type="checkbox" class="custom-control-input" id="translation_combine_keys">
+										<label class="custom-control-label" for="translation_combine_keys">Combiner les clés de tous les fichiers de traduction</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="border-top">
+							<div class="card-body">
+								<button type="submit" class="btn btn-primary">Mettre à jour</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 {% endblock %}
