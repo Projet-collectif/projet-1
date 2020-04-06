@@ -24,6 +24,13 @@ class TranslationService
         $this->_params = $paramsService;
     }
 
+    public function getRefFileTranslation()
+    {
+        return $this->_params->getFileTranslation(
+            $this->_params->get('locale')
+        );
+    }
+
     /**
      * Met à jour un fichier de traduction (le crée s'il n'existe pas)
      * 
@@ -54,25 +61,26 @@ class TranslationService
     }
 
     /**
-     * Modifie la langue de ref pour la traduction
+     * Retourne un tableau contenant la configuration de la traduction
      * 
-     * @param string  $locale
-     * @return void
+     * @return array
      */
-    public function getTranslationRefLocale(): string
+    public function getTranslationSettings(): array
     {
         $filename = $this->appRoot() . $this->_params::__FILE_CONFIG;
-        return Yaml::parseFile($filename)['settings']['translation']['ref_locale'];
+        return Yaml::parseFile($filename)['settings']['translation'];
     }
 
     /**
-     * Modifie la langue de ref pour la traduction
+     * Modifie la config de la traduction
      * 
-     * @param string  $locale
+     * @param array  $settings
      * @return void
      */
-    public function setTranslationRefLocale(string $locale): void
+    public function updateTranslationSettings(array $settings): void
     {
+        $locale = $settings['ref_locale'];
+
         if (!in_array($locale, $this->_params->localeCodes()) && $locale != '%locale%') {
             throw new \Exception("Cette langue est introuvable");
         }
@@ -84,6 +92,7 @@ class TranslationService
         $data = Yaml::parseFile($filename);
 
         $data['settings']['translation']['ref_locale'] = $locale;
+        $data['settings']['translation']['combine_keys'] = $settings['combine_keys'];
 
         file_put_contents($filename, Yaml::dump($data));
     }

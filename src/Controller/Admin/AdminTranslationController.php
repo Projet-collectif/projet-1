@@ -36,6 +36,11 @@ class AdminTranslationController extends AbstractController
 
         if (in_array($localeCode, array_keys($params->locales()))) {
             $data = $params->getFileTranslation($localeCode);
+            $refFileData = $this->service->getRefFileTranslation();
+
+            // TODO process merge
+            $data = array_merge($refFileData, $data);
+
             $locale = [
                 'code' => $localeCode,
                 'name' => $this->service->getLocaleName($localeCode)

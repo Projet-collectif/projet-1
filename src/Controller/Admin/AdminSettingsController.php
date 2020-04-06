@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * PHP version 7
+ * PHP version 7.4
  * Controller that manage adminstration settings
  * 
  * @category App\Controller\Admin
@@ -57,9 +57,11 @@ class AdminSettingsController extends AbstractController
     public function translation(Request $request): Response
     {
         if($request->isMethod(Request::METHOD_POST)) {
-            $translationRef = $request->request->get('translation')['ref_locale'];
+            $settings = $request->request->get('translation');
+            $settings['combine_keys'] ??= false;
+
             try {
-                $this->service->setTranslationRefLocale($translationRef);
+                $this->service->updateTranslationSettings($settings);
                 $this->addFlash('success', "Modifications effectuées.");
 
                 return $this->redirectToRoute('admin_settings_translation');
@@ -68,9 +70,11 @@ class AdminSettingsController extends AbstractController
             }
         }
 
+        $settings = $this->service->getTranslationSettings();
         return $this->renderBack('translation', [
             'locales' => $this->params->locales(),
-            'refLocale' => $this->service->getTranslationRefLocale()
+            'refLocale' => $settings['ref_locale'],
+            'combine_keys' => $settings['combine_keys']
         ]);
     }
 

@@ -1,11 +1,11 @@
 HOME: Accueil
-ERROR-UPLOAD: 'Une erreur est survenu lors de l''upload'
+ERROR-UPLOAD: ''
 ERROR-UPLOAD-FORMAT: 'Le format du fichier n''est pas bon'
 SMALL-AVATAR: 'La taille de votre avatar est trop petit'
 AVATAR-SAVE: 'Votre avatar été uploadé'
 VIDEO-SAVE: ''
 SUCCESS-REGISTRATION: 'Votre compte à été crée avec succès'
-YOUR-EMAIL: 'Votre email'
+YOUR-EMAIL: ''
 REPEAT-EMAIL: 'Répetez votre email'
 YOUR-PASSWORD: 'Votre mot de passe'
 REPEAT-PASSWORD: 'Répetez votre mot de passe'

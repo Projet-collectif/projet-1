@@ -40,7 +40,7 @@
 								<label class="col-md-3">Combiner les clés</label>
 								<div class="col-md-9">
 									<div class="custom-control custom-checkbox mr-sm-2">
-										<input name="translation[combine_keys]" type="checkbox" class="custom-control-input" id="translation_combine_keys">
+										<input {% if combine_keys %}checked{% endif %} name="translation[combine_keys]" type="checkbox" class="custom-control-input" id="translation_combine_keys">
 										<label class="custom-control-label" for="translation_combine_keys">Combiner les clés de tous les fichiers de traduction</label>
 									</div>
 								</div>
