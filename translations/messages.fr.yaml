@@ -44,9 +44,9 @@ LOGOUT: 'Déconnexion'
 ADMINISTRATION: 'Administration'
 REGISTER: 'Créer un compte'
 
-form:
-  signin: Connectez-vous
-  signinBtn: Connexion
+# form:
+#   signin: Connectez-vous
+#   signinBtn: Connexion
 
-user:
-  loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a> 
+# user:
+#   loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a>

@@ -10,7 +10,8 @@
 
 {% block body %}
 	<div class="container mb-5 pb-5">
-        <h1 class="mb-5 mt-3 pb-2 border-bottom"><a href="{{ path('admin_translation') }}"><i class="fa fa-arrow-left"></i></a> Translation &mdash; {{ locale.name }}</h1>
+        <div class="container">
+        <h1 class="mb-5 mt-3 pb-2 border-bottom"><a href="{{ path('admin_translation') }}"><i class="text-dark fas fa-long-arrow-alt-left"></i></a> Translation &mdash; {{ locale.name }}</h1>
 
         <form method="POST" action="{{ path('admin_translation_edit') }}">
             <button type="button" id="addRow" class="btn btn-primary mb-3 px-3"><i class="fa fa-plus-circle"></i> Ajouter</button>
@@ -37,6 +38,7 @@
             </table>
             <input type="hidden" name="translation[locale]" value="{{ locale.code }}">
         </form>
+        </div>
 	</div>
 {% endblock %}
 

@@ -50,12 +50,12 @@ class ParamsService
     /**
      * Constante __FILE_TRANSLATIONS
      */
-    private const __FILE_TRANSLATIONS = '/translations/messages.xx.yaml';
+    public const __FILE_TRANSLATIONS = '/translations/messages.xx.yaml';
 
     /**
      * Constante __FILE_TRANSLATIONS
      */
-    private const __FILE_TRANSLATIONS_OLD = '/translations/messages_old.xx.yaml';
+    public const __FILE_TRANSLATIONS_OLD = '/translations/messages_old.xx.yaml';
 
     /**
      * Variable $this->_params;
@@ -82,6 +82,20 @@ class ParamsService
     public function getParams()
     {
         return $this->_params;
+    }
+
+    /**
+     * Gets a service container parameter.
+     *
+     * @param string $name The parameter name
+     *
+     * @return mixed The parameter value
+     *
+     * @throws ParameterNotFoundException if the parameter is not defined
+     */
+    public function get($name)
+    {
+        return $this->getParams()->get($name);
     }
 
     /**

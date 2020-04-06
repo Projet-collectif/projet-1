@@ -9,8 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
+ * @IsGranted("ROLE_ADMIN")
  * @Route("/admin/translation")
  */
 class AdminTranslationController extends AbstractController
@@ -20,9 +22,9 @@ class AdminTranslationController extends AbstractController
      */
     private $service;
 
-    public function __construct(ParameterBagInterface $parameterBagInterface)
+    public function __construct(ParamsService $params)
     {
-        $this->service = new TranslationService($parameterBagInterface);
+        $this->service = new TranslationService($params);
     }
 
     /**
@@ -31,10 +33,9 @@ class AdminTranslationController extends AbstractController
     public function index(Request $request, ParamsService $params): Response
     {
         $localeCode = $request->query->get('locale');
-        $locales = $this->service->getDefinedTranslations();
 
-        if (in_array($localeCode, array_keys($locales))) {
-            $data = $this->service->getTranslation($localeCode);
+        if (in_array($localeCode, array_keys($params->locales()))) {
+            $data = $params->getFileTranslation($localeCode);
             $locale = [
                 'code' => $localeCode,
                 'name' => $this->service->getLocaleName($localeCode)
@@ -49,7 +50,7 @@ class AdminTranslationController extends AbstractController
         } else {
             return $this->render(
                 'admin/'.$params->getTemplateBack().'/translation/index.html.twig', [
-                    'locales' => $locales
+                    'locales' => $params->locales()
                 ]
             );
         }

@@ -44,9 +44,9 @@ LOGOUT: 'Logout'
 ADMINISTRATION: 'Administration'
 REGISTER: 'Create a account'
 
-form:
-  signin: Please sign in
-  signinBtn: Sign in
+# form:
+#   signin: Please sign in
+#   signinBtn: Sign in
 
-user:
-  loggedInMessage: You are logged in as %username%, <a href="%logoutUrl%">Logout</a> 
+# user:
+#   loggedInMessage: You are logged in as %username%, <a href="%logoutUrl%">Logout</a> 

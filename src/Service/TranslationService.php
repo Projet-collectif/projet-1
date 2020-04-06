@@ -2,9 +2,7 @@
 
 namespace App\Service;
 
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Intl\Languages;
-use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
 class TranslationService
@@ -12,65 +10,18 @@ class TranslationService
     /**
      * Variable 
      * 
-     * @var ParameterBagInterface
+     * @var ParamsService
      */
-    private $_param;
-
-    /**
-     * Variable 
-     * 
-     * @var array
-     */
-    private $_locales;
+    private $_params;
 
     /**
      * Void __construct()
      *
-     * @param ParameterBagInterface $parameterBagInterface comment
+     * @param ParamsService $paramsService comment
      */
-    public function __construct(ParameterBagInterface $parameterBagInterface)
+    public function __construct(ParamsService $paramsService)
     {
-        $this->_param = $parameterBagInterface;
-        $this->_locales = explode('|', $this->_param->get('app_locales'));
-    }
-
-    /**
-     * Retourne la liste des locales de traduction dans services.yaml
-     * 
-     * @return array
-     */
-    public function getDefinedTranslations(): array
-    {
-        $locales = [];
-
-        foreach ($this->_locales as $code) {
-            $locales[$code] = $this->getLocaleName($code);
-        }
-
-        return $locales;
-    }
-
-    /**
-     * Retourne la liste des locales de traduction dans services.yaml
-     * 
-     * @param string $localeCode comment
-     * 
-     * @return array
-     */
-    public function getTranslation(string $localeCode): array
-    {
-        $filename = $this->getTranslationFilename($localeCode);
-        $data = [];
-
-        if (file_exists($filename)) {
-            try {
-                $data = Yaml::parseFile($filename);
-            } catch (ParseException $e) {
-                printf('Unable to parse the YAML string: %s', $e->getMessage());
-            }
-        }
-
-        return  $data;
+        $this->_params = $paramsService;
     }
 
     /**
@@ -83,7 +34,8 @@ class TranslationService
      */
     public function updateTranslation(string $locale, array $data): bool
     {
-        if (!in_array($locale, $this->_locales)) {
+        $locales = explode('|', $this->_params->get('app_locales'));
+        if (!in_array($locale, $locales)) {
             return false;
         }
 
@@ -93,7 +45,7 @@ class TranslationService
 
         if (file_exists($filename)) {
             $oldMessages = file_get_contents($filename);
-            file_put_contents($filename.".old", $oldMessages);
+            file_put_contents($this->getOldTranslationFilename($locale), $oldMessages);
         }
 
         file_put_contents($filename, $newMessage);
@@ -122,6 +74,18 @@ class TranslationService
      */
     private function getTranslationFilename(string $locale): string
     {
-        return $this->_param->get('app_root') . '/translations/messages.' . $locale . '.yaml';
+        return $this->_params->get('app_root') . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS);
+    }
+
+    /**
+     * Retourne le nom le l'ancien fichier de traduction à partir de sa langue
+     * 
+     * @param string $locale La langue
+     * 
+     * @return string
+     */
+    private function getOldTranslationFilename(string $locale): string
+    {
+        return $this->_params->get('app_root') . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS_OLD);
     }
 }
