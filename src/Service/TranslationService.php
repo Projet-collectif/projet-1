@@ -34,23 +34,58 @@ class TranslationService
      */
     public function updateTranslation(string $locale, array $data): bool
     {
-        $locales = explode('|', $this->_params->get('app_locales'));
-        if (!in_array($locale, $locales)) {
+        if (!in_array($locale, $this->_params->localeCodes())) {
             return false;
         }
 
-        $filename = $this->getTranslationFilename($locale);
+        $filename = $this->appRoot() . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS);
         $newMessage = Yaml::dump($data);
         $oldMessages = '';
 
         if (file_exists($filename)) {
             $oldMessages = file_get_contents($filename);
-            file_put_contents($this->getOldTranslationFilename($locale), $oldMessages);
+            $oldFilename = $this->appRoot() . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS_OLD);
+            file_put_contents($oldFilename, $oldMessages);
         }
 
         file_put_contents($filename, $newMessage);
 
         return true;
+    }
+
+    /**
+     * Modifie la langue de ref pour la traduction
+     * 
+     * @param string  $locale
+     * @return void
+     */
+    public function getTranslationRefLocale(): string
+    {
+        $filename = $this->appRoot() . $this->_params::__FILE_CONFIG;
+        return Yaml::parseFile($filename)['settings']['translation']['ref_locale'];
+    }
+
+    /**
+     * Modifie la langue de ref pour la traduction
+     * 
+     * @param string  $locale
+     * @return void
+     */
+    public function setTranslationRefLocale(string $locale): void
+    {
+        if (!in_array($locale, $this->_params->localeCodes()) && $locale != '%locale%') {
+            throw new \Exception("Cette langue est introuvable");
+        }
+
+        $filename = $this->appRoot() . $this->_params::__FILE_CONFIG;
+        $oldFilename = $this->appRoot() . $this->_params::__FILE_CONFIG_OLD;
+        file_put_contents($oldFilename, file_get_contents($filename));
+        
+        $data = Yaml::parseFile($filename);
+
+        $data['settings']['translation']['ref_locale'] = $locale;
+
+        file_put_contents($filename, Yaml::dump($data));
     }
 
     /**
@@ -66,26 +101,12 @@ class TranslationService
     }
 
     /**
-     * Retourne le nom du fichier de traduction à partir de sa langue
-     * 
-     * @param string $locale La langue
+     * Retorune le chemin du dossier root
      * 
      * @return string
      */
-    private function getTranslationFilename(string $locale): string
+    private function appRoot(): string
     {
-        return $this->_params->get('app_root') . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS);
-    }
-
-    /**
-     * Retourne le nom le l'ancien fichier de traduction à partir de sa langue
-     * 
-     * @param string $locale La langue
-     * 
-     * @return string
-     */
-    private function getOldTranslationFilename(string $locale): string
-    {
-        return $this->_params->get('app_root') . str_replace('xx', $locale, $this->_params::__FILE_TRANSLATIONS_OLD);
+        return $this->_params->get('app_root');
     }
 }

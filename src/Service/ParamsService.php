@@ -40,12 +40,12 @@ class ParamsService
     /**
      * Constante __FILE_CONFIG
      */
-    private const __FILE_CONFIG = '/config/configuration.yaml';
+    public const __FILE_CONFIG = '/config/configuration.yaml';
 
     /**
      * Constante __FILE_CONFIG_OLD
      */
-    private const __FILE_CONFIG_OLD = '/config/configuration_old.yaml';
+    public const __FILE_CONFIG_OLD = '/config/configuration_old.yaml';
 
     /**
      * Constante __FILE_TRANSLATIONS
@@ -158,7 +158,7 @@ class ParamsService
     public function locales(): array
     {
         $locales = array();
-        $explode = explode('|', $this->getParams()->get('app_locales'));
+        $explode = $this->localeCodes();
         foreach ($explode as $local) {
             $locales[$local] = ucfirst(Languages::getName($local, $local));
         }
@@ -166,4 +166,11 @@ class ParamsService
         return $locales;
     }
 
+    /**
+     * Return un tableu de code des langues (utilisé aussi dans les controllers)
+     */
+    public function localeCodes(): array
+    {
+        return explode('|', $this->getParams()->get('app_locales'));
+    }
 }
