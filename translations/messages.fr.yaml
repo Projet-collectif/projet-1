@@ -43,6 +43,8 @@ LOGIN: 'Connexion'
 LOGOUT: 'Déconnexion'
 ADMINISTRATION: 'Administration'
 REGISTER: 'Créer un compte'
+OUR SERVICES: 'Nos services'
+OUR TEAMS: 'Notre équipe'
 
 form:
   signin: Connectez-vous

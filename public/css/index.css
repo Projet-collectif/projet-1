@@ -1,40 +1,106 @@
-.carousel{
-    height: auto;
-    margin: 50px 25px 0;
-    justify-content: center;
-}
-.carousel img{
-    margin-bottom: 50px;
-    height: 250px;
-}
-.carousel li {
-    background-color: rgb(0, 0, 0);
+.sections{
+    position: relative;
+    height: 650px;
+    width: 100%;
+    background-image: url(../images/background_index.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0,0,0,0.5);
 }
 
-
-/* .carousel h1 {
-    margin-top: 50px;
-    padding: 25px;
-    color: rgba(255, 255, 255, 1);
-}
-*/
-
-.carousel .btn{
-    background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    border: none !important;
-    transition: all .2s ease-in-out;
-} 
-
-.carousel .btn:hover{
-    box-shadow: rgba(0, 0, 0, 0.4) -10px 10px 10px;
-
+.overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
 }
 
-.carousel button {
-    display: flex;
-    margin: 20px auto  20px ;
+.bg_primary{
+    background-color: #f7f7f7;
+    box-shadow: rgba(0,0,0,0.2) 0px 5px 5px;
 }
-.carousel a{
+    .btn-success {
+        color: #fff;
+        background-color: #2674CF;
+        border-color: #2674CF;
+    }
+.accueil-content{
+    position: absolute;
+    top: 30%;
+    left: 10%;
     color: white;
+
 }
+.accueil-content .accueil-desc{
+    text-indent: 5px;
+}
+
+.row{
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+.sections-body{
+    
+    padding-bottom: 50px;
+}
+
+.sections-body h2{
+    padding-top:88px;
+}
+.line span{
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #00adb5;
+    margin:auto;
+    position: relative;
+    bottom: 0.5px;
+}
+.sections-body .card-body {
+	background: #fff;
+    padding-top: 7em;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px rgba(0,0,0,0.2);
+    height:450px;
+    width: 500px;
+}
+
+.sections-body .card-body .icon{
+    background: #2674CF;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    color:#fff;
+    border-radius: 50%;
+
+}
+
+.card-titre{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+ 
+}
+.card-desc{
+     font-size: 17px;
+     color: #888;
+     margin-bottom: 20px;
+ }
+
+ .sections-body img{
+     margin: 20px auto ;
+ }
+
+ .sections-body h3 + h6{
+     padding: 10px;
+
+ }

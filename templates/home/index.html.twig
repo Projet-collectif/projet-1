@@ -6,43 +6,112 @@
 
 {% block body %}
 
-<main>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-12">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators ">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-
-            <div class="carousel-item active">
-              <h1 class="title_carousel-first text-center">Projet en cours 1</h1>
-              <button class="btn btn-info btn-lg "><a href="#">En savoir plus</a></button>
-              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
-              <div class="overlay"></div>
-
-            </div>
-            <div class="carousel-item">
-              <h1 class="title_carousel title-proj2 text-center">Projet en cours 2</h1>
-              <button class="btn btn-lg btn-primary"><a href="#">En savoir plus</a></button>
-              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
-              <div class="overlay"></div>
-
-            </div>
-            <div class="carousel-item">
-              <h1 class="title_carousel title-proj3 text-center">Projet en cours 3</h1>
-              <button class=" btn btn-lg btn-primary"><a href="#">En savoir plus</a></button>
-              <img src="{{ asset('images/bureau.svg') }}" class="w-100" alt="image_slider">
-              <div class="overlay"></div>
-            </div>
+<section class="sections accueil">
+  <div class="overlay">
+      <div class="container">
+          <div class="accueil-content">
+                <h3 class="accueil-title" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">Connaissance, maîtrise, écoute...</h3>
+                <p class=" accueil-desc"  data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                  La connaissance, la maîtrise et l’écoute, font partie du quotidient de notre
+                  équipe de développeurs ! 
+                  <span class="d-block">Nous sommes à votre écoute pour toutes demande
+                    de développement de site web. </span>
+                  <span class="d-block">Un projet , une équipe à votre écoute...</span>
+                </p>
+                <button class="btn btn-success button mt-2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">En savoir plus !</button>
           </div>
-        </div>
       </div>
-    </div>
   </div>
-</main>
+</section>
+
+
+<section class="sections-body">
+  <div class="container-fluid">
+      <div class="section-header text-center">
+          <h2 id="Nos-services" class="section-title">{{ 'OUR SERVICES'|trans|raw }}</h2>
+          <div class="line"><span></span></div> <br />
+          <p class="card-desc">
+            <span class="d-block">Vous souhaitez vous lancer dans le e-commerce ? Mais vous ne savez par où commencer ? </span>
+            <span class="d-block">Vous êtes aux bonnes endroits ! Nous pouvons vous créer tous types de sites avec un design qui
+              vous correspondront ! </span>
+          </p>
+      </div>
+
+      <div class="row">
+          <div class="col-md-4 col-xs-12">
+              <div class="card-body">
+                  <i class="icon fas fa-code fa-lg"></i>
+                  <h3 class="card-titre">Développement</h3>
+                  <p class="card-services-desc">Vous êtes à la recherche d'un site web ? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et quaerat fugit enim.</p>
+              </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+              <div class="card-body">
+                  <i class="icon fa fa-tablet-alt fa-lg"></i>
+                  <h3 class="card-titre">Site 100% responsive</h3>
+                  <p class="card-desc">De nos jours, les smartphones sont à la portée de tous, c'est donc pour cela que chacun des sites que nous développons sont 100% responsive ! <span>(compatible tous supports).</span></p>
+              </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12">
+              <div class="card-body">
+                  <i class=" icon fas fa-paint-brush"></i>
+                  <h3 class="card-titre">Projet 100% personnalisable !</h3>
+                  <p class="card-desc">Durant le développement de votre projet, vous aurez un accès pour suivre la progression de votre projet </p>
+              </div>
+          </div>
+      </div> <!-- /div row -->
+
+    </div> <!-- /div container-->
+  
+</section>
+
+
+<section class="sections-body bg_primary">
+
+<div class="container-fluid">
+  <div class="section-header text-center">
+      <h2 class="section-title">{{ 'OUR TEAMS'|trans|raw }}</h2>
+      <div class="line"><span></span></div> <br />
+      <p class="section-desc">
+        <span class="d-block">Vous souhaitez vous lancer dans le e-commerce ? Mais vous ne savez par où commencer ? </span>
+        <span class="d-block">Vous êtes aux bonnes endroits ! Nous pouvons vous créer tous types de sites avec un design qui
+          vous correspondront ! </span>
+      </p>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4 col-xs-12">
+          <div class="card-body">
+            <img class="d-flex" src="{{ asset('images/svg/avatar.svg') }}" height="70" widht="70" alt="avartar">
+            <h3 class="card-titre">Jeremy</h3>
+            <h6 class="card-subtitle">Développeur Front-End</h6>
+            <p class="card-desc">Vous êtes à la recherche d'un site web ? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et quaerat fugit enim.</p>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-xs-12">
+          <div class="card-body">
+            <img class="d-flex" src="{{ asset('images/svg/avatar.svg') }}" height="70" widht="70" alt="avartar">
+            <h3 class="card-titre">Franck</h3>
+            <h6 class="card-subtitle">Développeur Back-End</h6>
+            <p class="card-desc">De nos jours, les smartphones sont à la portée de tous, c'est donc pour cela que chacun des sites que nous développons sont 100% responsive ! <span>(compatible tous supports).</span></p>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-xs-12">
+          <div class="card-body">
+            <img class="d-flex" src="{{ asset('images/svg/avatar.svg') }}" height="70" widht="70" alt="avartar">
+            <h3 class="card-titre">Zied</h3>
+            <h6 class="card-subtitle">Développeur Front-End</h6>
+            <p class="card-desc">Durant le développement de votre projet, vous aurez un accès pour suivre la progression de votre projet </p>
+          </div>
+      </div>
+  </div> <!-- /div row -->
+
+</div> <!-- /div container-->
+
+</section>
 
 {% endblock %}
