@@ -58,7 +58,7 @@ class AdminSettingsController extends AbstractController
     {
         if($request->isMethod(Request::METHOD_POST)) {
             $settings = $request->request->get('translation');
-            $settings['combine_keys'] ??= false;
+            $settings['combine_keys'] = false;
 
             try {
                 $this->service->updateTranslationSettings($settings);
