@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserRegisterType;
+use App\Service\ParamsService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,14 +13,13 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 class SecurityController extends AbstractController
 {
     /**
      * Variable $this->_params
      *
-     * @var ParameterBagInterface
+     * @var ParamsService
      */
     private $_params;
 
@@ -33,11 +33,11 @@ class SecurityController extends AbstractController
     /**
      * Void __construct()
      *
-     * @param ParameterBagInterface  $params  Objet
+     * @param ParamsService          $params  Objet
      * @param EntityManagerInterface $manager Objet
      */
     public function __construct(
-        ParameterBagInterface $params, 
+        ParamsService $params, 
         EntityManagerInterface $manager
     ) {
         $this->_params = $params;
@@ -64,6 +64,14 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        /*
+        return $this->render(
+            $this->_params->getTemplateFront().'/security/login.html.twig', [
+                'last_username' => $lastUsername, 
+                'error' => $error
+            ]
+        );
+        */
         return $this->render(
             'security/login.html.twig', [
                 'last_username' => $lastUsername, 
@@ -109,7 +117,7 @@ class SecurityController extends AbstractController
             $dateNow = \DateTime::createFromFormat('Y-m-d H:i:s', $dateNow);
 
             // Table User
-            if ($this->_params->get('app_env') == "dev") {
+            if ($this->_params->getParams()->get('app_env') == "dev") {
                 $user->setIsActive(true);
                 $user->setActivationKey('');
                 $user->setRoles(array('ROLE_ADMIN'));
@@ -151,6 +159,13 @@ class SecurityController extends AbstractController
 
         }
 
+        /*
+        return $this->render(
+            $this->_params->getTemplateFront().'/security/registration.html.twig', [
+                'form' => $form->createView()
+            ]
+        );
+        */
         return $this->render(
             'security/registration.html.twig', [
                 'form' => $form->createView()
