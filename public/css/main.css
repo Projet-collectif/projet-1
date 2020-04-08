@@ -5,3 +5,7 @@ nav a{
     font-family: 'Montserrat', sans-serif;
 
 }
+
+body {
+    overflow-x: hidden;
+}
