@@ -5,8 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'fr'
-    #app_locales: fr(francais)|en(anglais)|de(allemagne)|es(espagne)|cs|nl|ru(russie)|pt(portugal)|uk|ro|pt_BR|pl|it(italie)|ja|id|ca|sl|hr|zh_CN|bg(bulgarie)|tr
-    app_locales: fr|en|de|es|ru|it|pt|bg
+    app_locales: fr|en|de|es|it|cs|nl|ru|pt|uk|ro|pl|ja|id|ca|sl|hr|bg|tr
     app_env: '%env(resolve:APP_ENV)%'
     sitename: 'projet-1'
     app_root: '%kernel.project_dir%'
@@ -36,3 +35,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.params_service:
+        class: App\Service\ParamsService
+        autowire: true
+
