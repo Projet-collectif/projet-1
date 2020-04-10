@@ -7,3 +7,14 @@
 #datatable .fa-times {
     cursor:pointer;
 }
+#datatable .fa-check {
+    color:green;
+}
+#datatable .fa-times {
+    color:red;
+}
+#datatable .btn-transparent {
+    background:transparent !important;
+    padding:0 !important;
+    margin:0 !important;
+}

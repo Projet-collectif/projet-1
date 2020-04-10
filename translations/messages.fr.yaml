@@ -43,6 +43,7 @@ LOGIN: 'Connexion'
 LOGOUT: 'Déconnexion'
 ADMINISTRATION: 'Administration'
 REGISTER: 'Créer un compte'
+YOUR-ARE-SURE: 'Êtes-vous sûre de vouloir supprimer %delete% ?'
 
 form:
   signin: Connectez-vous

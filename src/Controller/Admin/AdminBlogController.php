@@ -79,6 +79,7 @@ class AdminBlogController extends AbstractController
     {
         return $this->render(
             'admin/'.$this->_params->getTemplateBack().'/blog/index.html.twig', [
+                'controller_name' => 'blog',
                 'blogs' => $blogRepository->findAll(),
             ]
         );
@@ -154,7 +155,7 @@ class AdminBlogController extends AbstractController
      * @param Request $request comment
      * @param Blog    $blog    comment
      * 
-     * @Route("/{id}/edit", name="admin_blog_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="admin_blog_edit", methods={"GET","POST"})
      * 
      * @return Response
      */
@@ -192,7 +193,7 @@ class AdminBlogController extends AbstractController
      * @param Request $request comment
      * @param Blog    $blog    comment
      * 
-     * @Route("/{id}", name="admin_blog_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="admin_blog_delete", methods={"DELETE"})
      * 
      * @return Response
      */
@@ -206,4 +207,44 @@ class AdminBlogController extends AbstractController
 
         return $this->redirectToRoute('admin_blog_index');
     }
+
+    /**
+     * Ajax
+     * 
+     * @param Request        $request        comment
+     * @param BlogRepository $blogRepository comment
+     * 
+     * @Route("/publish/ajax", name="admin_blog_ajax", methods={"POST"})
+     * 
+     * @return Response
+     */
+    public function ajax(Request $request, BlogRepository $blogRepository): Response 
+    {
+        $return = false;
+        $blog = $blogRepository->find($request->request->get('id'));
+        $action = $request->request->get('action');
+
+        if (!empty($blog) && !empty($action)) {
+            if ($action == "true") {
+                $blog->setPublish(true);
+            }
+            if ($action == "false") {
+                $blog->setPublish(false);
+            }
+
+            // Manager
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($blog);
+            $entityManager->flush();
+
+            $return = true;
+        } 
+
+        // RESPONSE
+        $response = new Response(json_encode($return));
+        $response->headers->set('Content-Type', 'application/json');
+    
+        return $response;
+    }
+
 }
