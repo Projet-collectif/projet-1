@@ -112,9 +112,8 @@ class BlogFixtures extends Fixture
         $content .= 'quos beneficiis suis oppigneratos elegerat imperator ';
         $content .= 'certus nec praemiis nec miseratione ulla posse deflecti.';
         
-        $u = rand(100, 999);
-        
         for ($i = 1; $i <= 350; $i++) {
+            $u = rand(100, 999);
             $dateNow = date('Y-m-d H:i:s');
             $dateNow = \DateTime::createFromFormat('Y-m-d H:i:s', $dateNow);
             $blog = new Blog();
