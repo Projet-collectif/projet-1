@@ -1,0 +1,5 @@
+template:
+    front: default
+    back: matrix
+settings:
+    translation: { ref_locale: de, combine_keys: false }

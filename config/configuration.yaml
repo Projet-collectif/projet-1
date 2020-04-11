@@ -1,3 +1,5 @@
 template:
-  front: 'default'
-  back: 'matrix'
+    front: default
+    back: matrix
+settings:
+    translation: { ref_locale: '%locale%', combine_keys: 'on' }

@@ -1,5 +1,5 @@
 HOME: Accueil
-ERROR-UPLOAD: 'Une erreur est survenu lors de l''upload'
+ERROR-UPLOAD: ''
 ERROR-UPLOAD-FORMAT: 'Le format du fichier n''est pas bon'
 SMALL-AVATAR: 'La taille de votre avatar est trop petit'
 AVATAR-SAVE: 'Votre avatar été uploadé'
@@ -43,15 +43,5 @@ LOGIN: Connexion
 LOGOUT: Déconnexion
 ADMINISTRATION: Administration
 REGISTER: 'Créer un compte'
-OUR SERVICES: 'Nos services'
-OUR TEAMS: 'Notre équipe'
-
-form:
-  signin: Connectez-vous
-  signinBtn: Connexion
-
-user:
-  loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a> 
-  
 SETTINGS: Paramètres
 TRANSLATION: Traduction
