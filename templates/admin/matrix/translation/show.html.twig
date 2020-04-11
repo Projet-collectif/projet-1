@@ -10,7 +10,8 @@
 
 {% block body %}
 	<div class="container mb-5 pb-5">
-        <h1 class="mb-5 mt-3 pb-2 border-bottom"><a href="{{ path('admin_translation') }}"><i class="fa fa-arrow-left"></i></a> Translation &mdash; {{ locale.name }}</h1>
+        <div class="container">
+        <h1 class="mb-5 mt-3 pb-2 border-bottom"><a href="{{ path('admin_translation') }}"><i class="text-dark fas fa-long-arrow-alt-left"></i></a> Translation &mdash; {{ locale.name }}</h1>
 
         <form method="POST" action="{{ path('admin_translation_edit') }}">
             <button type="button" id="addRow" class="btn btn-primary mb-3 px-3"><i class="fa fa-plus-circle"></i> Ajouter</button>
@@ -37,9 +38,29 @@
             </table>
             <input type="hidden" name="translation[locale]" value="{{ locale.code }}">
         </form>
+        </div>
 	</div>
 {% endblock %}
 
 {% block javascripts %}
-	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/af-2.3.4/kt-2.5.1/sp-1.0.1/datatables.min.js"></script>
+    <script>
+        var table = $('#dataTable').DataTable({
+            "paging": false
+        });
+        var itemsCount = table.rows().count();
+
+
+        $("#addRow").on('click', function (e) {
+            itemsCount++;
+            table.row.add([
+                `<input type="text" class="form-control border-0 shadow-none" placeholder="Key" name="translation[key][${itemsCount}]" value="">`,
+                `<input type="text" class="form-control border-0 shadow-none" placeholder="Value" name="translation[value][${itemsCount}]" value="">`
+            ]).draw(false)
+        });
+
+        if (itemsCount == 0) {
+            $('#addRow').click();
+        }
+    </script>
 {% endblock %}

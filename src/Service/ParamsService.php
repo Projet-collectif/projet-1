@@ -40,22 +40,22 @@ class ParamsService
     /**
      * Constante __FILE_CONFIG
      */
-    private const __FILE_CONFIG = '/config/configuration.yaml';
+    public const __FILE_CONFIG = '/config/configuration.yaml';
 
     /**
      * Constante __FILE_CONFIG_OLD
      */
-    private const __FILE_CONFIG_OLD = '/config/configuration_old.yaml';
+    public const __FILE_CONFIG_OLD = '/config/configuration_old.yaml';
 
     /**
      * Constante __FILE_TRANSLATIONS
      */
-    private const __FILE_TRANSLATIONS = '/translations/messages.xx.yaml';
+    public const __FILE_TRANSLATIONS = '/translations/messages.xx.yaml';
 
     /**
      * Constante __FILE_TRANSLATIONS
      */
-    private const __FILE_TRANSLATIONS_OLD = '/translations/messages_old.xx.yaml';
+    public const __FILE_TRANSLATIONS_OLD = '/translations/messages_old.xx.yaml';
 
     /**
      * Variable $this->_params;
@@ -82,6 +82,20 @@ class ParamsService
     public function getParams()
     {
         return $this->_params;
+    }
+
+    /**
+     * Gets a service container parameter.
+     *
+     * @param string $name The parameter name
+     *
+     * @return mixed The parameter value
+     *
+     * @throws ParameterNotFoundException if the parameter is not defined
+     */
+    public function get($name)
+    {
+        return $this->getParams()->get($name);
     }
 
     /**
@@ -154,7 +168,7 @@ class ParamsService
     public function locales(): array
     {
         $locales = array();
-        $explode = explode('|', $this->getParams()->get('app_locales'));
+        $explode = $this->localeCodes();
         foreach ($explode as $local) {
             $locales[$local] = ucfirst(Languages::getName($local, $local));
         }
@@ -162,4 +176,11 @@ class ParamsService
         return $locales;
     }
 
+    /**
+     * Return un tableu de code des langues (utilisé aussi dans les controllers)
+     */
+    public function localeCodes(): array
+    {
+        return explode('|', $this->getParams()->get('app_locales'));
+    }
 }
