@@ -1,6 +1,6 @@
 {% extends 'admin/matrix/base.html.twig' %}
 
-{% block title %}Blog index{% endblock %}
+{% block title %}{{ 'BLOG'|trans|raw }}{% endblock %}
 
 {% block stylesheets %}
 <link href="{{ asset('admin/matrix/assets/extra-libs/Datatables/dataTables.css') }}" rel="stylesheet">
@@ -10,12 +10,12 @@
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Blog</h4>
+            <h4 class="page-title">{{ 'BLOG'|trans|raw }}</h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ path('admin') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        <li class="breadcrumb-item"><a href="{{ path('admin') }}">{{ 'HOME'|trans|raw }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ 'BLOG'|trans|raw }}</li>
                     </ol>
                 </nav>
             </div>
@@ -46,23 +46,24 @@
                                 <tr id="{{ blog.id }}">
                                     <td class="text-center">
                                         {{ include('admin/matrix/blog/_delete_form.html.twig') }}
-                                        {#<span data-id="{{ blog.id }}" data-projet="{{ blog.title }}" class="fas fa-trash-alt"></span>#}
                                     </td>
                                     <td class="details" title="{{ 'CLICK-DETAILS'|trans|raw }}">{{ blog.title }}</td>
-                                    <td class="details" title="{{ 'CLICK-DETAILS'|trans|raw }}">{{ blog.title }}</td>
+                                    <td class="details" title="{{ 'CLICK-DETAILS'|trans|raw }}">{{ blog.compte.nom }} {{ blog.compte.nom }} ({{ blog.compte.user.roles[0]|replace({'ROLE_':''})|lower }})</td>
                                     <td class="details" title="{{ 'CLICK-DETAILS'|trans|raw }}">{{ blog.created|date("d-m-Y H:i:s") }}</td>
                                     <td class="details" title="{{ 'CLICK-DETAILS'|trans|raw }}">{{ blog.hits }}</td>
                                     <td class="text-center">
-                                    {% if blog.publish == true %}
-                                    <span id="valid-{{ blog.id }}" data-id="{{ blog.id }}" class="fas fa-check" title="{{ 'CLICK-CHANGE-OPTION'|trans|raw }}"></span><span class="display-none">{{ blog.publish }}</span>
-                                    {% else %}
-                                    <span id="valid-{{ blog.id }}" data-id="{{ blog.id }}" class="fas fa-times" title="{{ 'CLICK-CHANGE-OPTION'|trans|raw }}"></span><span class="display-none">{{ blog.publish }}</span>
-                                    {% endif %}
+                                        {% if blog.publish == true %}
+                                        <span id="valid-{{ blog.id }}" data-id="{{ blog.id }}" class="fas fa-check" title="{{ 'CLICK-CHANGE-OPTION'|trans|raw }}"></span>
+                                        <span class="display-none">{{ blog.publish }}</span>
+                                        {% else %}
+                                        <span id="valid-{{ blog.id }}" data-id="{{ blog.id }}" class="fas fa-times" title="{{ 'CLICK-CHANGE-OPTION'|trans|raw }}"></span>
+                                        <span class="display-none">{{ blog.publish }}</span>
+                                        {% endif %}
                                     </td>
                                 </tr>
                             {% else %}
                                 <tr>
-                                    <td colspan="11">no records found</td>
+                                    <td colspan="11">{{ 'NO-RECORDS-FOUND'|trans }}</td>
                                 </tr>
                             {% endfor %}
                             </tbody>

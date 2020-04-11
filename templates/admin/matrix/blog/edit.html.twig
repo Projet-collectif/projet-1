@@ -1,6 +1,6 @@
 {% extends 'admin/matrix/base.html.twig' %}
 
-{% block title %}Edit Blog{% endblock %}
+{% block title %}{{ 'EDIT-BLOG'|trans|raw }}{% endblock %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="{{ asset('trumbowyg/ui/trumbowyg.min.css') }}">
@@ -13,13 +13,13 @@
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Edit Blog</h4>
+            <h4 class="page-title">{{ 'EDIT-BLOG'|trans|raw }}</h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{ path('admin') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ path('admin_blog_index') }}">Blog</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">edit</li>
+                        <li class="breadcrumb-item"><a href="{{ path('admin') }}">{{ 'HOME'|trans|raw }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ path('admin_blog_index') }}">{{ 'BLOG'|trans|raw }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ 'EDIT'|trans|raw }}</li>
                     </ol>
                 </nav>
             </div>

@@ -1,3 +1,5 @@
 template:
   front: 'default'
   back: 'matrix'
+site:
+  listLimit: 20

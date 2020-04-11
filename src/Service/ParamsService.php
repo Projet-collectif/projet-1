@@ -89,7 +89,7 @@ class ParamsService
      *
      * @return array
      */
-    private function _config(): array
+    public function config(): array
     {
         return Yaml::parseFile(
             $this->getParams()->get("app_root").self::__FILE_CONFIG
@@ -103,7 +103,7 @@ class ParamsService
      */
     public function getTemplateFront(): string
     {
-        return $this->_config()['template']['front'];
+        return $this->config()['template']['front'];
     }
 
     /**
@@ -113,7 +113,7 @@ class ParamsService
      */
     public function getTemplateBack(): string
     {
-        return $this->_config()['template']['back'];
+        return $this->config()['template']['back'];
     }
     
     /**

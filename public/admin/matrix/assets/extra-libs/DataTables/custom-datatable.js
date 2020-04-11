@@ -13,7 +13,7 @@ $(document).ready(function() {
         ]
     });
     controller = $('#datatable').attr('data-controller');
-    _local = $('html').attr('lang') 
+    _local = $('html').attr('lang');
     $('.datatable-'+controller+' tbody').on('click', '.details', function() {
         window.location = '/'+_local+'/admin/'+controller+'/edit/'+parseInt($(this).parent('tr').attr('id'));
     });
