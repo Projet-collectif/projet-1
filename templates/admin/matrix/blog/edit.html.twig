@@ -1,0 +1,50 @@
+{% extends 'admin/matrix/base.html.twig' %}
+
+{% block title %}{{ 'EDIT-BLOG'|trans|raw }}{% endblock %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('trumbowyg/ui/trumbowyg.min.css') }}">
+<link rel="stylesheet" href="{{ asset('trumbowyg/plugins/colors/ui/trumbowyg.colors.css') }}">
+<link rel="stylesheet" href="{{ asset('trumbowyg/plugins/emoji/ui/trumbowyg.emoji.css') }}">
+<link rel="stylesheet" href="{{ asset('trumbowyg/plugins/table/ui/trumbowyg.table.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">{{ 'EDIT-BLOG'|trans|raw }}</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ path('admin') }}">{{ 'HOME'|trans|raw }}</a></li>
+                        <li class="breadcrumb-item"><a href="{{ path('admin_blog_index') }}">{{ 'BLOG'|trans|raw }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ 'EDIT'|trans|raw }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            {{ include('admin/matrix/blog/_form.html.twig') }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{ asset('trumbowyg/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/colors/trumbowyg.colors.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/emoji/trumbowyg.emoji.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/history/trumbowyg.history.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/pasteembed/trumbowyg.pasteembed.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/table/trumbowyg.table.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/fontsize/trumbowyg.fontsize.min.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/fontfamily/trumbowyg.fontfamily.min.js') }}"></script>
+<script src="{{ asset('trumbowyg/plugins/lineheight/trumbowyg.lineheight.min.js') }}"></script>
+<script src="{{ asset('trumbowyg/custom.js') }}"></script>
+{% endblock %}
+

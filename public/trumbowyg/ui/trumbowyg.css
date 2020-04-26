@@ -56,6 +56,7 @@
   min-height: 300px;
   width: 100%;
   border-style: none;
+  background: #fff !important;
   resize: none;
   outline: none;
   overflow: auto; }

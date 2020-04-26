@@ -1,5 +1,5 @@
 template:
-    front: default
-    back: matrix
-settings:
-    translation: { ref_locale: '%locale%', combine_keys: 'on' }
+  front: 'default'
+  back: 'matrix'
+site:
+  listLimit: 20

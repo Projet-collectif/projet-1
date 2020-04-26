@@ -1,6 +1,26 @@
 <?php
 
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  CompteRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
+
 namespace App\Form;
+
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  CompteRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
 
 use App\Entity\Compte;
 use Symfony\Component\Form\AbstractType;
@@ -13,6 +33,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
+/**
+ * PHP version 7
+ *
+ * @category App\Form
+ * @package  CompteRegisterType.php
+ * @author   FERRERO Franck <ferrerofranck@plateformweb.com>
+ * @license  http://opensource.org/licenses/gpl-license.php MIT License
+ * @link     https://github.com/Projet-collectif/projet-1
+ */
 class CompteRegisterType extends AbstractType
 {
     /**

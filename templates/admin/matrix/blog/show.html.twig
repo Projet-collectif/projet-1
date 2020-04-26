@@ -1,0 +1,58 @@
+{% extends 'admin/matrix/base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <h1>Blog</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ blog.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ blog.title }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ blog.slug }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ blog.content }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ blog.created ? blog.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Publish</th>
+                <td>{{ blog.publish ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Metadesc</th>
+                <td>{{ blog.metadesc }}</td>
+            </tr>
+            <tr>
+                <th>Metakeys</th>
+                <td>{{ blog.metakeys }}</td>
+            </tr>
+            <tr>
+                <th>Hits</th>
+                <td>{{ blog.hits }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ blog.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_blog_index') }}">back to list</a>
+
+    <a href="{{ path('admin_blog_edit', {'id': blog.id}) }}">edit</a>
+
+    {{ include('admin/matrix/blog/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+<div id="translate" data-translate="{{ 'CONFIRM-DEL'|trans }}"></div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">{{ 'CONFIRM-DELETE'|trans|raw }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <span id="confirm-delete-body"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            <span class="fas fa-sign-out-alt mr-2"></span>{{ 'CLOSE'|trans|raw }}
+        </button>
+        <a href="" id="delete-item" class="btn btn-primary"><span class="fas fa-trash-alt mr-2"></span>{{ 'DELETE'|trans|raw }}</a>
+      </div>
+    </div>
+  </div>
+</div>

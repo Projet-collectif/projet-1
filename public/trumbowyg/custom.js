@@ -1,5 +1,5 @@
 $('.form-textarea').trumbowyg({ 
-    lang: 'fr',
+    lang: $('html').attr('lang'),
     btns: [
             ['undo', 'redo'],
             ['emoji'],
@@ -18,5 +18,5 @@ $('.form-textarea').trumbowyg({
             ['removeformat'],
             ['viewHTML'],
             ['fullscreen']
-        ]
+        ],
 });

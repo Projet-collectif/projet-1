@@ -1,0 +1,20 @@
+.display-none {
+    display:none;
+}
+#datatable .details, 
+#datatable .fa-trash-alt,
+#datatable .fa-check, 
+#datatable .fa-times {
+    cursor:pointer;
+}
+#datatable .fa-check {
+    color:green;
+}
+#datatable .fa-times {
+    color:red;
+}
+#datatable .btn-transparent {
+    background:transparent !important;
+    padding:0 !important;
+    margin:0 !important;
+}

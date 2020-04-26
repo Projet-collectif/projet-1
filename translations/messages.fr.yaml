@@ -37,14 +37,39 @@ CONTRAINTS-REGEX-PSEUDO: 'Ce champ contient des erreurs'
 YOUR-WEBSITE: 'Votre site web'
 EX-WEBSITE: www.original-codeur.fr
 YOUR-AVATAR: 'Votre avatar'
-SAVE: Enregistrer
+SAVE: 'Enregistrer'
+BTN-SAVE: '<span class="far fa-save mr-2"></span>Enregistrer'
 COPYRIGHT: 'Copyright &copy; %date% %sitename% | Tous droits réservés.'
 LOGIN: Connexion
 LOGOUT: Déconnexion
 ADMINISTRATION: Administration
 REGISTER: 'Créer un compte'
-OUR SERVICES: 'Nos services'
-OUR TEAMS: 'Notre équipe'
+YOUR-ARE-SURE: 'Êtes-vous sûre de vouloir supprimer %delete% ?'
+NO-RECORDS-FOUND: 'Aucun enregistrement trouvé'
+CLICK-DETAILS: 'Cliquez pour afficher les détails'
+CLICK-CHANGE-OPTION: 'Cliquez pour changer l''option'
+LANGUAGE: 'Language'
+SELECTED: 'Sélectionnez une option'
+CONTENT: 'Contenu'
+CATEGORIES: 'Catégories'
+CATEGORIE: 'Catégorie'
+NO-CATEGORY: 'Aucune catégorie'
+METADESC: 'Meta description'
+METAKEYS: 'Mot clefs'
+CHOICE-EMPTY-INPUT: 'Laissez ce champ vide pour ne pas le modifier'
+IMAGE: 'Image'
+TITLE: 'Titre'
+AUTHOR: 'Auteur'
+CREATED: 'Créer le'
+HITS: 'Vu'
+PUBLISH: ' Publié'
+ADD-BLOG: 'Ajouter un blog'
+EDIT-BLOG: 'Modifier le blog'
+BLOG: 'Blog'
+TRANSLATIONS: 'Traduction'
+DASHBOARD: 'Dashboard'
+EDIT: 'Modifier'
+NEW: 'nouveau'
 
 form:
   signin: Connectez-vous
