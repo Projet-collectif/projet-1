@@ -77,3 +77,6 @@ form:
 
 user:
   loggedInMessage: Vous êtes connecté en tant que %username%, <a href="%logoutUrl%">Déconnexion</a> 
+  
+SETTINGS: Paramètres
+TRANSLATION: Traduction

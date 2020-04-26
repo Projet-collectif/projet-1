@@ -27,8 +27,8 @@ body{
     margin: 0;
     text-align: center;
 }
-
-/* .container_entreprise{
+/* 
+.container_entreprise{
     position: absolute;
     top:-50px;
 } */
@@ -55,6 +55,7 @@ form{
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     padding: 45px;
+    margin-top: 5em;
 
 }
 form img{
@@ -82,8 +83,8 @@ button{
     font-size: 1em !important;
 }
 .container .row{
-    position: relative;
-    top: 140px;
+    /* position: relative;
+    top: 140px; */
     align-items: center;
 }
 
@@ -98,7 +99,7 @@ button{
         display: none;
     }
     form{
-        margin-bottom: 20px;
+        margin: 4em 0;
     }
 }
 
